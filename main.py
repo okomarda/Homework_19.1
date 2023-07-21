@@ -10,14 +10,14 @@ class MyServer(BaseHTTPRequestHandler):
 
     def do_GET(self):
         query_components = parse_qs(urlparse(self.path).query)
-        page_content = self.pattern_1()
+        page_content = self.pattern_2()
         self.send_response(200)
         self.send_header("Content-type", "text/html")
         self.end_headers()
         self.wfile.write(bytes(page_content, "utf-8"))
 
 
-    def pattern_1(self):
+    def pattern_2(self):
         """Загрузка шаблона 1"""
         try:
             f = open ('pattern_2.html', 'r', encoding='utf-8')
